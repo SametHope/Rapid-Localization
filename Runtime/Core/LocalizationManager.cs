@@ -54,7 +54,7 @@ namespace SametHope.RapidLocalization
         {
             if (Dictionary.Count > 0)
             {
-                Debug.LogError($"Initialization warning: You are trying to initialize the localization dictionary when it is already initialized.");
+                Debug.LogWarning($"Initialization warning: You are trying to initialize the localization dictionary when it is already initialized.");
                 return;
             }
 
