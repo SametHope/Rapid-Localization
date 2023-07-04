@@ -4,20 +4,42 @@ using UnityEngine.UI;
 namespace SametHope.RapidLocalization
 {
     [RequireComponent(typeof(Text))]
-    public class Localizer_Text : LocalizerBase
+    public class Localizer_Text : MonoBehaviour
     {
-        public Text Text { get; private set; }
+        [Tooltip("Should localize automatically on start.")]
+        public bool LocalizeOnStart = true;
 
-        private void Awake()
+        [Tooltip("Should localize automatically each time language changes.")]
+        public bool IgnoreEvent = false;
+
+        [Tooltip("The key to localize text based on.")]
+        public string LocalizationKey;
+
+        [HideInInspector] public Text Text;
+
+        protected void Awake()
         {
             Text = GetComponent<Text>();
+            LocalizationManager.LanguageChanged += Localize;
         }
-        public override void Localize()
+        protected void Start()
         {
+            if (LocalizeOnStart) Localize();
+        }
+        private void OnDestroy()
+        {
+            LocalizationManager.LanguageChanged -= Localize;
+        }
+
+
+        public void Localize()
+        {
+            if (IgnoreEvent) return;
             Text.text = LocalizationManager.Localize(LocalizationKey);
         }
-        public override void Localize(params object[] args)
+        public void Localize(params object[] args)
         {
+            if (IgnoreEvent) return;
             Text.text = LocalizationManager.Localize(LocalizationKey, args);
         }
     }

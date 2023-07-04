@@ -32,7 +32,7 @@ namespace SametHope.RapidLocalization
         private static string _language = FALLBACK_LANGUAGE;
 
         /// <summary>
-        /// Fired every time localization changes.
+        /// Fired every time <see cref="Language"/> is set.
         /// </summary>
         public static System.Action LanguageChanged = delegate { };
 
