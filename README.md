@@ -8,7 +8,7 @@ Rapid Localization is a lightweight Unity plugin that makes adding localization 
 
 Rapid Localization utilizes Google Sheets to create translation sheets, enabling teams of any size and contributors to work on translations for multiple languages simultaneously or asynchronously.
 
-The plugin features the 'Localization Synchronizer' custom editor window, accessed on the 'Tools' section, allowing you to easily download the translation spreadsheet(s) to the resources folder to be used in both editor and the builds. The Localization Synchronizer also offers configuration options to customize some of the plugin's behavior.
+The plugin features the 'Localization Synchronizer' custom editor window, accessed on the '[Tools](https://github.com/SametHope/Rapid-Localization/#tools-bar)' section, allowing you to easily download the translation spreadsheet(s) to the resources folder to be used in both editor and the builds. The Localization Synchronizer also offers configuration options to customize some of the plugin's behavior.
 
 When your application starts, the LocalizationManager class reads the spreadsheet(s) and loads the translations into memory for the session.
 
@@ -47,8 +47,8 @@ When the language is set or changed, listeners are notified and update their lan
 ## Setup
 
 - Add the code into your Unity project, ideally into the Plugins folder. The plugin will automatically create its required files which are a folder called RapidLocalization inside Assets/Resources and RapidLocalizationSettings.asset.
-- Open the editor window that we will use to configure the plugin and download the spreadsheets from Google Sheets: Tools -> SametHope -> Localization Syncronizer.
-- [Fill in informations of your Google Sheets](www.google.com) and click 'Syncronize!' button to download, format and save the sheet.
+- Open the editor window that we will use to configure the plugin and download the spreadsheets from Google Sheets: [Tools -> SametHope -> Localization Syncronizer.](https://github.com/SametHope/Rapid-Localization/#tools-bar)
+- [Fill in informations of your Google Sheets](https://github.com/SametHope/Rapid-Localization/#filling-out-google-sheet-informations) and click 'Syncronize!' button to download, format and save the sheet.
 - You are virtually done, the plugin is ready to be used. Configure it to your liking and remember to syncronize it when you make changes on the Google Sheets.
 
 
