@@ -8,7 +8,7 @@ Rapid Localization is a lightweight Unity plugin that makes adding localization 
 
 Rapid Localization utilizes Google Sheets to create translation sheets, enabling teams of any size and contributors to work on translations for multiple languages simultaneously or asynchronously.
 
-The plugin features the "Localization Synchronizer" custom editor window, accessed on the "Tools" section, allowing you to easily download the translation spreadsheet(s) to the resources folder to be used in both editor and the builds. The Localization Synchronizer also offers configuration options to customize some of the plugin's behavior.
+The plugin features the 'Localization Synchronizer' custom editor window, accessed on the 'Tools' section, allowing you to easily download the translation spreadsheet(s) to the resources folder to be used in both editor and the builds. The Localization Synchronizer also offers configuration options to customize some of the plugin's behavior.
 
 When your application starts, the LocalizationManager class reads the spreadsheet(s) and loads the translations into memory for the session.
 
@@ -68,3 +68,19 @@ When the language is set or changed, listeners are notified and update their lan
 
 2. Set the dropdown options to the available languages.
 When the dropdown selection changes, the language will be updated and saved automatically.
+
+
+## Extras
+
+### Tools bar
+![2023-07-06 02_39_03-Ayarlar](https://github.com/SametHope/Rapid-Localization/assets/85421686/2abfc679-6b50-4bf9-a3cf-dffc4068b7cd)
+
+### Localization syncronizer
+![2023-07-06 00_12_15-Mock Jam Project - MenuScene - WebGL - Unity 2021 3 22f1 Personal _DX11_](https://github.com/SametHope/Rapid-Localization/assets/85421686/b50a2261-0426-44a5-b03f-98c933a4a6d7)
+
+### Filling out Google Sheet informations
+![2023-07-06 02_36_00-Mock Localisation - Google E-Tablolar - Opera](https://github.com/SametHope/Rapid-Localization/assets/85421686/1affad3b-ffbe-4e98-b9b6-26690a4ebd84)
+
+Long red line is the 'TableID', short red line is the 'Sheet ID'.
+
+
