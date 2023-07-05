@@ -48,7 +48,7 @@ namespace SametHope.RapidLocalization
         public static readonly List<string> SupportedLanguages = new();
 
         /// <summary>
-        /// Initialize the localization dictionary. Reads localization spreadsheets and loads them to the memory into the <see cref="Dictionary"/> for further use in the session.
+        /// Initialize the localization dictionary. Reads localization spreadsheets and loads them to the memory into the <see cref="Dictionary"/> for further localization use in the session.
         /// </summary>
         public static void InitializeDictionary()
         {

@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace SametHope.RapidLocalization.Editor
 {
+    /// <summary>
+    /// This class will create localization folder and settings asset for the first time, making <see cref="LocalizationSyncronizer"/> usable.
+    /// </summary>
     public static class LocalizationEditorInitializer
     {
         [InitializeOnLoadMethod]

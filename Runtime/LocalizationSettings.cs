@@ -2,10 +2,11 @@
 
 namespace SametHope.RapidLocalization
 {
+    /// <summary>
+    /// This class holds options and data set on the editor and is used by both editor and runtime calls.
+    /// </summary>
     public class LocalizationSettings : ScriptableObject
     {
-        // Note: PATHs are just folders, FILEs are, well, files. And NAMEs are, names...
-
         public const string LOCALIZATION_FOLDER_NAME = "RapidLocalization";
         public const string LOCALIZATION_FOLDER_PATH = "Assets/Resources/RapidLocalization";
 
@@ -16,7 +17,7 @@ namespace SametHope.RapidLocalization
 
         public static LocalizationSettings Instance;
 
-        [Tooltip("Table id of the Google Spreadsheet.")]
+        [Tooltip("Id of the Google Spreadsheet.")]
         public string TableID;
 
         [Tooltip("Name of the spreadsheet. Only used for saving the file to the disk.")]
@@ -28,12 +29,12 @@ namespace SametHope.RapidLocalization
         [Tooltip("Folder to save the spreadsheet. This is hardcoded and will recreate itself if it is deleted just like localization settings.")]
         public Object DownloadFolder;
 
-        [Tooltip("Automatically initializes the manager before the first scene is loaded.")]
+        [Tooltip("Automatically initializes the manager before the first scene is loaded, requiring no manual initialization.")]
         public bool AutoInitialize = true;
 
         [Tooltip("Automatically updates the language using PlayerPrefs after initialization. \n" +
-            "If there is no PlayerPrefs entry, tries to use system language, if that is not supported, uses the fallback language. \n" +
-            "Also saves the language to PlayerPrefs for further use.")]
+            "If there is no PlayerPrefs entry, tries using system language, if it is not a supported language, uses the fallback language. \n" +
+            "Also saves the language to PlayerPrefs for further use after setting it.")]
         public bool AutoUpdateLanguage = true;
     }
 

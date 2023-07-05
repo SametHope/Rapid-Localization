@@ -9,12 +9,12 @@ using UnityEngine.Networking;
 namespace SametHope.RapidLocalization.Editor
 {
     /// <summary>
-    /// Downloads spritesheets from Google Spreadsheet and saves them to Resources as text file(s).
+    /// Downloads spritesheets from Google Spreadsheets and saves them to the disk as text file(s).
     /// </summary>
     public class LocalizationSyncronizer : EditorWindow
     {
-        // This whole editor window and task system could be replaced with an simple gameObject and coroutines
-        // but I made it this way so it is not dependent on gameObjects/monoBehaviours.
+        // Note: This whole editor window and task system could be replaced with an simple gameObject and coroutines
+        // but I made it this way so it is not dependent on gameObjects/monoBehaviours and will not bloat the scene.
 
         #region Create Window
         [MenuItem("Tools/SametHope/Localization Syncronizer")]
@@ -25,7 +25,7 @@ namespace SametHope.RapidLocalization.Editor
         }
         #endregion
 
-        #region Create/Load Data
+        #region Handle Editor Files
         private void OnEnable()
         {
             if (!LocalizationEditorUtils.LocalizationFolderExists)
@@ -47,7 +47,7 @@ namespace SametHope.RapidLocalization.Editor
 
         private void OnGUI()
         {
-            // If for some reason Localization folder and/or settings is gone
+            // If for some reason Localization folder and/or settings is gone, we want to create them again.
             if (LocalizationSettings.Instance == null)
             {
                 OnEnable();
@@ -59,17 +59,15 @@ namespace SametHope.RapidLocalization.Editor
             GUILayout.BeginVertical("Box");
 
             // --------------------------- Table ID ---------------------------
-            SerializedProperty idSP = serDataObj.FindProperty(nameof(LocalizationSettings.TableID));
-            EditorGUILayout.PropertyField(idSP);
+            EditorGUILayout.PropertyField(serDataObj.FindProperty(nameof(LocalizationSettings.TableID)));
 
-            // --------------------------- Sheet Data ---------------------------
+            // --------------------------- Sheet Name and ID ---------------------------
             EditorGUILayout.PropertyField(serDataObj.FindProperty(nameof(LocalizationSettings.SheetName)));
             EditorGUILayout.PropertyField(serDataObj.FindProperty(nameof(LocalizationSettings.SheetId)));
 
             // --------------------------- Folder ---------------------------
-            var folderSP = serDataObj.FindProperty(nameof(LocalizationSettings.DownloadFolder));
             EditorGUI.BeginDisabledGroup(true);
-            EditorGUILayout.PropertyField(folderSP);
+            EditorGUILayout.PropertyField(serDataObj.FindProperty(nameof(LocalizationSettings.DownloadFolder)));
             EditorGUI.EndDisabledGroup();
 
             EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
@@ -90,7 +88,7 @@ namespace SametHope.RapidLocalization.Editor
             }
             if (!LocalizationSettings.Instance.AutoInitialize || !LocalizationSettings.Instance.AutoUpdateLanguage)
             {
-                EditorGUILayout.HelpBox("I highly recommend enabling these options. Be sure to hover over them to make sure you know what they do.", MessageType.Info);
+                EditorGUILayout.HelpBox("I highly recommend enabling these two options. Be sure to hover over them to make sure you know what they do before unticking them.", MessageType.Info);
             }
 
             GUILayout.EndVertical();
@@ -134,9 +132,9 @@ namespace SametHope.RapidLocalization.Editor
             UnityWebRequest webReq = UnityWebRequest.Get(url);
             webReq.redirectLimit = 1;
             webReq.timeout = 10;
-            
+
             Debug.Log($"<color=yellow>Downloading spreadsheet: </color><color=white>{url} </color>");
-            
+
             webReq.SendWebRequest();
 
             while (!webReq.isDone)

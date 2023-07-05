@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 namespace SametHope.RapidLocalization
 {
+    /// <summary>
+    /// This class makes life easier by making a responsive language selection dropdown.
+    /// </summary>
     [RequireComponent(typeof(Dropdown))]
     public class LangSelectorDropdown : MonoBehaviour
     {
@@ -33,6 +36,10 @@ namespace SametHope.RapidLocalization
 
             _selectorDropdown.value = targetOptionIndex;
         }
+
+        /// <summary>
+        /// This method must be called when the language dropdown value changes to apply and save the new language.
+        /// </summary>
         public void SetLanguageToDropdownItem()
         {
             LocalizationManager.Language = _selectorDropdown.options[_selectorDropdown.value].text;
