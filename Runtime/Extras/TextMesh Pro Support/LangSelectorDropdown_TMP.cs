@@ -14,6 +14,11 @@ namespace SametHope.RapidLocalization
         private void Awake()
         {
             _selectorDropdown = GetComponent<TMP_Dropdown>();
+            _selectorDropdown.onValueChanged.AddListener(SetLanguageToDropdownItem);
+        }
+        private void OnDestroy()
+        {
+            _selectorDropdown.onValueChanged.RemoveListener(SetLanguageToDropdownItem);
         }
         private void OnEnable()
         {
@@ -38,11 +43,11 @@ namespace SametHope.RapidLocalization
         }
 
         /// <summary>
-        /// This method must be called when the language dropdown value changes to apply and save the new language.
+        /// This method is called when the language dropdown value changes to apply and save the new language.
         /// </summary>
-        public void SetLanguageToDropdownItem()
+        public void SetLanguageToDropdownItem(int newValue)
         {
-            LocalizationManager.Language = _selectorDropdown.options[_selectorDropdown.value].text;
+            LocalizationManager.Language = _selectorDropdown.options[newValue].text;
             LocalizationManager.SaveLanguage();
         }
     }
