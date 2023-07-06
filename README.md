@@ -16,7 +16,9 @@ Rapid Localization is an efficient and lightweight Unity plugin that simplifies 
 - **UI Localization:** Localize both TextMeshPro (TMP) and legacy UI components.
   
 - **Dropdown Language Selection:** Includes prewritten code for a dropdown language selection UI element.
-  
+
+- **Lightweight:** Occupies very little space and contains a handful of scripts. The scripts are contained within assembly definitions and do not clutter the main assembly.
+
 - **Debugging:** If something goes wrong or encounters an issue, plugin tries fixing it and provides useful debug messages. These messages contain information about what went wrong and offer probable fixes.
   
 - **Platform Compatibility:** Supports all platforms.
@@ -27,8 +29,6 @@ Rapid Localization is an efficient and lightweight Unity plugin that simplifies 
   
 - **Open Source:** The code is open source, allowing customization.
   
-- **Lightweight:** Occupies very little space and contains a handful of scripts. The scripts are contained within assembly definitions and do not clutter the main assembly.
-
 
 ## Setup
 
