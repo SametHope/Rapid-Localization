@@ -1,7 +1,7 @@
 
 # Rapid Localization
 
-Rapid Localization is an efficient and lightweight Unity plugin that simplifies adding localization to applications. It requires minimal setup while offering a comprehensive set of features that absolutely surpasses its size. 
+Rapid Localization is an efficient and lightweight Unity plugin that simplifies adding localization to applications. It requires minimal setup while offering a comprehensive set of features that absolutely surpass its size. 
 
 
 ## Features
