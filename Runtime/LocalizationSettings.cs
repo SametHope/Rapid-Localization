@@ -24,7 +24,7 @@ namespace SametHope.RapidLocalization
         public string SheetName;
 
         [Tooltip("Id of the spreadsheet. Used for downloading the sheet from the web.")]
-        public long SheetId;
+        public long SheetID;
 
         [Tooltip("Folder to save the spreadsheet. This is hardcoded and will recreate itself if it is deleted just like localization settings.")]
         public Object DownloadFolder;

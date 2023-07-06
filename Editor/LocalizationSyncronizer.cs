@@ -63,7 +63,7 @@ namespace SametHope.RapidLocalization.Editor
 
             // --------------------------- Sheet Name and ID ---------------------------
             EditorGUILayout.PropertyField(serDataObj.FindProperty(nameof(LocalizationSettings.SheetName)));
-            EditorGUILayout.PropertyField(serDataObj.FindProperty(nameof(LocalizationSettings.SheetId)));
+            EditorGUILayout.PropertyField(serDataObj.FindProperty(nameof(LocalizationSettings.SheetID)));
 
             // --------------------------- Folder ---------------------------
             EditorGUI.BeginDisabledGroup(true);
@@ -99,6 +99,11 @@ namespace SametHope.RapidLocalization.Editor
             {
                 Syncronize();
             }
+
+            if (EditorGUILayout.LinkButton("Click here if you are having trouble with ids."))
+            {
+                Application.OpenURL("https://github.com/SametHope/Rapid-Localization/blob/main/README.md#filling-out-google-sheet-informations");
+            }
         }
 
         #region Syncronizing
@@ -128,7 +133,7 @@ namespace SametHope.RapidLocalization.Editor
         }
         private static async Task InternalSyncronize()
         {
-            string url = $"https://docs.google.com/spreadsheets/d/{LocalizationSettings.Instance.TableID}/export?format=csv&gid={LocalizationSettings.Instance.SheetId}";
+            string url = $"https://docs.google.com/spreadsheets/d/{LocalizationSettings.Instance.TableID}/export?format=csv&gid={LocalizationSettings.Instance.SheetID}";
             UnityWebRequest webReq = UnityWebRequest.Get(url);
             webReq.redirectLimit = 1;
             webReq.timeout = 10;
