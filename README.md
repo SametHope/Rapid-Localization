@@ -4,19 +4,6 @@
 Rapid Localization is a lightweight Unity plugin that makes adding localization to applications way easier, requiring minimal setup.
 
 
-## How does it work?
-
-Rapid Localization utilizes Google Sheets to create translation sheets, enabling teams of any size and contributors to work on translations for multiple languages simultaneously or asynchronously.
-
-The plugin features the 'Localization Synchronizer' custom editor window, accessed on the '[Tools](https://github.com/SametHope/Rapid-Localization/#tools-bar)' section, allowing you to easily download the translation spreadsheet(s) to the resources folder to be used in both editor and the builds. The Localization Synchronizer also offers configuration options to customize some of the plugin's behavior.
-
-When your application starts, the LocalizationManager class reads the spreadsheet(s) and loads the translations into memory for the session.
-
-At this point, the plugin can optionally check if a language has been previously saved. If a language is saved, it will be set as the current language. If no language is saved, the plugin will retrieve the player's system language and check if it is a supported language. If it is supported, the system language will be set as the current language and saved. If the system language is not supported, the plugin will fallback to a default language.
-
-When the language is set or changed, listeners are notified and update their languages accordingly. If a translation key is missing in the current language, the fallback language is used. If the fallback is also missing, the key itself is used for easier debugging. Any unintended behavior is logged as warnings or errors, along with helpful tips to resolve them.
-
-
 ## Features
 
 - **Single Editor Window:** Convenient setup and configuration through a single editor window.
@@ -47,7 +34,7 @@ When the language is set or changed, listeners are notified and update their lan
 ## Setup
 
 - Add the code into your Unity project, ideally into the Plugins folder. The plugin will automatically create its required files which are a folder called RapidLocalization inside Assets/Resources and RapidLocalizationSettings.asset.
-- Open the editor window that we will use to configure the plugin and download the spreadsheets from Google Sheets: [Tools -> SametHope -> Localization Syncronizer.](https://github.com/SametHope/Rapid-Localization/#tools-bar)
+- Open the editor window that we will use to configure the plugin and download the spreadsheets from Google Sheets: [Tools -> SametHope -> Localization Syncronizer.](https://github.com/SametHope/Rapid-Localization/#tools-bar) <sub>Note: Your Google Sheet must be public so it can be downloaded.</sub>
 - [Fill in informations of your Google Sheets](https://github.com/SametHope/Rapid-Localization/#filling-out-google-sheet-informations) and click 'Syncronize!' button to download, format and save the sheet.
 - You are virtually done, the plugin is ready to be used. Configure it to your liking and remember to syncronize it when you make changes on the Google Sheets.
 
@@ -56,7 +43,7 @@ When the language is set or changed, listeners are notified and update their lan
 
 **To translate UI elements, follow these steps:**
 
-1. Add the 'Localizer' component to the UI element you want to translate.
+1. Add the '[Localizer](https://github.com/SametHope/Rapid-Localization/edit/main/README.md#localizer)' component to the UI element you want to translate.
 
 2. Set the localization key for the 'Localizer' component. This key will be used to update the translation of the UI element when necessary.
 
@@ -70,6 +57,19 @@ When the language is set or changed, listeners are notified and update their lan
 When the dropdown selection changes, the language will be updated and saved automatically.
 
 
+## How does it work?
+
+Rapid Localization utilizes Google Sheets to create translation sheets, enabling teams of any size and contributors to work on translations for multiple languages simultaneously or asynchronously.
+
+The plugin features the 'Localization Synchronizer' custom editor window, accessed on the '[Tools](https://github.com/SametHope/Rapid-Localization/#tools-bar)' section, allowing you to easily download the translation spreadsheet(s) to the resources folder to be used in both editor and the builds. The Localization Synchronizer also offers configuration options to customize some of the plugin's behavior.
+
+When your application starts, the LocalizationManager class reads the spreadsheet(s) and loads the translations into memory for the session.
+
+At this point, the plugin can optionally check if a language has been previously saved. If a language is saved, it will be set as the current language. If no language is saved, the plugin will retrieve the player's system language and check if it is a supported language. If it is supported, the system language will be set as the current language and saved. If the system language is not supported, the plugin will fallback to a default language.
+
+When the language is set or changed, listeners are notified and update their languages accordingly. If a translation key is missing in the current language, the fallback language is used. If the fallback is also missing, the key itself is used for easier debugging. Any unintended behavior is logged as warnings or errors, along with helpful tips to resolve them.
+
+
 ## Extras
 
 ### Tools bar
@@ -81,6 +81,9 @@ When the dropdown selection changes, the language will be updated and saved auto
 ### Filling out Google Sheet informations
 ![2023-07-06 02_36_00-Mock Localisation - Google E-Tablolar - Opera](https://github.com/SametHope/Rapid-Localization/assets/85421686/1affad3b-ffbe-4e98-b9b6-26690a4ebd84)
 
-Long red line is the 'TableID', short red line is the 'Sheet ID'.
+Long red line is the 'TableID', short red line is the 'Sheet ID'. 
 
+### Localizer
+![2023-07-06 02_54_15-Temp Medias](https://github.com/SametHope/Rapid-Localization/assets/85421686/c543e923-063b-4ce7-ad5b-e724f2e1e2db)
 
+#### Note: that your Google Sheet must be public so it can be downloaded. 
