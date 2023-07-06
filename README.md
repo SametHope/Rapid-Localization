@@ -34,7 +34,7 @@ Rapid Localization is an efficient and lightweight Unity plugin that simplifies 
 
 - [Setup your translation sheet](https://github.com/SametHope/Rapid-Localization/#Google-Sheets) on the Google Sheets. 
 - Add the code into your Unity project, ideally into the Plugins folder. The plugin will automatically create its required files which are a folder called RapidLocalization inside Assets/Resources and RapidLocalizationSettings.asset.
-- Open the editor window that we will use to configure the plugin and download the spreadsheets from Google Sheets: [Tools -> SametHope -> Localization Syncronizer.](https://github.com/SametHope/Rapid-Localization/#toolbar) <sub>Note: Your Google Sheet must be public so it can be downloaded.</sub>
+- Open the editor window that we will use to configure the plugin and download the spreadsheets from Google Sheets: [Tools -> SametHope -> Localization Syncronizer.](https://github.com/SametHope/Rapid-Localization/#toolbar)
 - [Fill in informations of your Google Sheets](https://github.com/SametHope/Rapid-Localization/#Google-Sheets) and click 'Syncronize!' button to download, format and save the sheet.
 - You are virtually done, the plugin is ready to be used. Configure it to your liking and remember to syncronize it when you make changes on the Google Sheets.
 
