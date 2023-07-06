@@ -36,7 +36,7 @@ Rapid Localization is an efficient and lightweight Unity plugin that simplifies 
 - [Setup your translation sheet](https://github.com/SametHope/Rapid-Localization/#Google-Sheets) on the Google Sheets. 
 - Add the code into your Unity project, ideally into the Plugins folder. The plugin will automatically create its required files which are a folder called RapidLocalization inside Assets/Resources and RapidLocalizationSettings.asset.
 - Open the editor window that we will use to configure the plugin and download the spreadsheets from Google Sheets: [Tools -> SametHope -> Localization Syncronizer.](https://github.com/SametHope/Rapid-Localization/#toolbar)
-- [Fill in informations of your Google Sheets](https://github.com/SametHope/Rapid-Localization/#Google-Sheets) and click 'Syncronize!' button to download, format and save the sheet.
+- Fill in Localization Syncronizer window with [information of your Google Sheet](https://github.com/SametHope/Rapid-Localization/#Google-Sheets) and click 'Syncronize!' button to download, format and save the sheet.
 - You are virtually done, the plugin is ready to be used. Configure it to your liking and remember to syncronize it when you make changes on the Google Sheets.
 
 
@@ -68,7 +68,7 @@ When your application starts, the LocalizationManager class reads the spreadshee
 
 At this point, the plugin can optionally check if a language has been previously saved. If a language is saved, it will be set as the current language. If no language is saved, the plugin will retrieve the player's system language and check if it is a supported language. If it is supported, the system language will be set as the current language and saved. If the system language is not supported, the plugin will fallback to a default language.
 
-When the language is set or changed, listeners are notified and update their languages accordingly. If a translation key is missing in the current language, the fallback language is used. If the fallback is also missing, the key itself is used for easier debugging. Any unintended behavior is logged as warnings or errors, along with helpful tips to resolve them.
+When the language is set or changed, listeners are notified and update their languages accordingly. If a translation key is missing in the current language, the fallback language is used. If the fallback is also missing, the key itself is used for easier debugging. Any unintended or significant behaviour is logged, along with helpful tips to resolve them.
 
 
 
@@ -88,7 +88,7 @@ You can and probably should hover over properties to read their tooltips.
 
 ![2023-07-06 02_54_15-Temp Medias](https://github.com/SametHope/Rapid-Localization/assets/85421686/c543e923-063b-4ce7-ad5b-e724f2e1e2db)
 
-I don't advise changing any default options.
+I don't advise changing any default options unless you need to.
 
 Google Sheets
 --------------
