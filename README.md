@@ -75,25 +75,26 @@ When the language is set or changed, listeners are notified and update their lan
 # Extras
 
 ### Toolbar
-![2023-07-06 02_39_03-Ayarlar](https://github.com/SametHope/Rapid-Localization/assets/85421686/2abfc679-6b50-4bf9-a3cf-dffc4068b7cd)
+![2023-07-06 02_39_03-Ayarlar](https://github.com/SametHope/Rapid-Localization/assets/85421686/8c0fa39f-e9b7-410f-995a-7d3acb3489cb)
 
 This is the toolbar, everyone knows what a toolbar is.
 
+
 ### Localization syncronizer
-![2023-07-06 00_12_15-Mock Jam Project - MenuScene - WebGL - Unity 2021 3 22f1 Personal _DX11_](https://github.com/SametHope/Rapid-Localization/assets/85421686/b50a2261-0426-44a5-b03f-98c933a4a6d7)
+![2023-07-06 00_12_15-Mock Jam Project - MenuScene - WebGL - Unity 2021 3 22f1 Personal _DX11_](https://github.com/SametHope/Rapid-Localization/assets/85421686/d7cbced3-d430-42f7-bac5-57ccfbaf419d)
 
 You can and probably should hover over properties to read their tooltips.
 
 ### Localizer
 
-![2023-07-06 02_54_15-Temp Medias](https://github.com/SametHope/Rapid-Localization/assets/85421686/c543e923-063b-4ce7-ad5b-e724f2e1e2db)
+![2023-07-06 02_54_15-Temp Medias](https://github.com/SametHope/Rapid-Localization/assets/85421686/0cdbfeca-5f49-43a9-a936-fbea736006e9)
 
 I don't advise changing any default options unless you need to.
 
 Google Sheets
 --------------
 
-![2023-07-06 04_06_41-Mock Localisation - Google E-Tablolar - Opera](https://github.com/SametHope/Rapid-Localization/assets/85421686/f155d19a-615a-435f-a694-6b760bc331ea)
+![2023-07-06 04_06_41-Mock Localisation - Google E-Tablolar - Opera](https://github.com/SametHope/Rapid-Localization/assets/85421686/37514658-6617-4b36-9eae-e1a5e5441578)
 
 ***You must format your Google Sheet like this for the plugin to work.***
 
@@ -102,7 +103,8 @@ Google Sheets
 **Blue** box contents are Localization entries <br />
 
 
-![2023-07-06 02_36_00-Mock Localisation - Google E-Tablolar - Opera](https://github.com/SametHope/Rapid-Localization/assets/85421686/1affad3b-ffbe-4e98-b9b6-26690a4ebd84)
+![2023-07-06 02_36_00-Mock Localisation - Google E-Tablolar - Opera](https://github.com/SametHope/Rapid-Localization/assets/85421686/cba2b33a-4131-4b61-ac58-e3ccd4398aec)
+
 
 ***Ensure that your Google Sheet is public so it can be downloaded.***
 
