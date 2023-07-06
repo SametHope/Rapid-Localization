@@ -1,7 +1,8 @@
 
 # Rapid Localization
 
-Rapid Localization is an efficient and lightweight Unity plugin that simplifies adding localization to applications. It requires minimal setup while offering a comprehensive set of features that absolutely surpasses its size.
+Rapid Localization is an efficient and lightweight Unity plugin that simplifies adding localization to applications. It requires minimal setup while offering a comprehensive set of features that absolutely surpasses its size. 
+
 
 ## Features
 
@@ -76,7 +77,7 @@ When the language is set or changed, listeners are notified and update their lan
 ### Toolbar
 ![2023-07-06 02_39_03-Ayarlar](https://github.com/SametHope/Rapid-Localization/assets/85421686/2abfc679-6b50-4bf9-a3cf-dffc4068b7cd)
 
-This is the toolbar, everyone know what a toolbar is.
+This is the toolbar, everyone knows what a toolbar is.
 
 ### Localization syncronizer
 ![2023-07-06 00_12_15-Mock Jam Project - MenuScene - WebGL - Unity 2021 3 22f1 Personal _DX11_](https://github.com/SametHope/Rapid-Localization/assets/85421686/b50a2261-0426-44a5-b03f-98c933a4a6d7)
