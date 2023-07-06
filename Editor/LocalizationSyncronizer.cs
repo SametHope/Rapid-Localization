@@ -13,44 +13,29 @@ namespace SametHope.RapidLocalization.Editor
     /// </summary>
     public class LocalizationSyncronizer : EditorWindow
     {
+        #region Editor Window
+
         // Note: This whole editor window and task system could be replaced with an simple gameObject and coroutines
         // but I made it this way so it is not dependent on gameObjects/monoBehaviours and will not bloat the scene.
 
-        #region Create Window
         [MenuItem("Tools/SametHope/Localization Syncronizer")]
         public static void CreateWindow()
         {
             var window = GetWindow(typeof(LocalizationSyncronizer), true, "Localization Syncronizer", true);
             window.minSize = new Vector2(380, 220);
         }
-        #endregion
 
-        #region Handle Editor Files
         private void OnEnable()
         {
-            if (!LocalizationEditorUtils.LocalizationFolderExists)
-            {
-                Debug.Log($"{LocalizationSettings.LOCALIZATION_FOLDER_PATH} is missing, creating it.");
-                LocalizationEditorUtils.CreateLocalizationFolderAndRefresh();
-            }
-
-            if (!LocalizationEditorUtils.SettingsAssetExists)
-            {
-                Debug.Log($"{LocalizationSettings.SETTINGS_FILE_PATH} is missing, creating it.");
-                LocalizationEditorUtils.CreateSettingsAssetAndRefresh(ScriptableObject.CreateInstance<LocalizationSettings>());
-            }
-
-            LocalizationSettings.Instance = LocalizationEditorUtils.LoadSettingsAsset();
-            LocalizationSettings.Instance.DownloadFolder = LocalizationEditorUtils.LoadLocalizationFolder();
+            LocalizationEditorInitializer.SecureEditorFilesMissing();
         }
-        #endregion
 
         private void OnGUI()
         {
             // If for some reason Localization folder and/or settings is gone, we want to create them again.
             if (LocalizationSettings.Instance == null)
             {
-                OnEnable();
+                LocalizationEditorInitializer.SecureEditorFilesMissing();
             }
 
             SerializedObject serDataObj = new SerializedObject(LocalizationSettings.Instance);
@@ -95,6 +80,8 @@ namespace SametHope.RapidLocalization.Editor
 
             serDataObj.ApplyModifiedProperties();
 
+            // --------------------------- Buttons ---------------------------
+
             if (GUILayout.Button("Syncronize!"))
             {
                 Syncronize();
@@ -102,11 +89,12 @@ namespace SametHope.RapidLocalization.Editor
 
             if (EditorGUILayout.LinkButton("Click here if you are having trouble with ids."))
             {
-                Application.OpenURL("https://github.com/SametHope/Rapid-Localization/blob/main/README.md#filling-out-google-sheet-informations");
+                Application.OpenURL("https://github.com/SametHope/Rapid-Localization#google-sheets");
             }
         }
+        #endregion
 
-        #region Syncronizing
+        #region Syncronization Logic
         private static Task _currentTask = null;
 
         /// <summary>
@@ -116,7 +104,7 @@ namespace SametHope.RapidLocalization.Editor
         {
             if (_currentTask != null && _currentTask.Status.Equals(TaskStatus.Running))
             {
-                Debug.LogError("Syncronization request is ignored as last syncronization request is still being proccessed.</color>");
+                Debug.LogWarning("Ignored syncronization request is  as last syncronization request is still being proccessed.</color>");
                 return;
             }
 
@@ -135,8 +123,8 @@ namespace SametHope.RapidLocalization.Editor
         {
             string url = $"https://docs.google.com/spreadsheets/d/{LocalizationSettings.Instance.TableID}/export?format=csv&gid={LocalizationSettings.Instance.SheetID}";
             UnityWebRequest webReq = UnityWebRequest.Get(url);
-            webReq.redirectLimit = 1;
-            webReq.timeout = 10;
+            webReq.redirectLimit = 1; // 1 is just enough to download the file.
+            webReq.timeout = 10; // Just in case.
 
             Debug.Log($"<color=yellow>Downloading spreadsheet: </color><color=white>{url} </color>");
 
@@ -157,12 +145,17 @@ namespace SametHope.RapidLocalization.Editor
             else
             {
                 Debug.LogError($"<color=yellow>Download failed: </color><color=white>Result: {webReq.result} - Error: {webReq.error} - Response Code: ({webReq.responseCode}) </color>");
-                Debug.LogError($"Are you sure that the sheets are not private and the ids are correct?");
+                
                 if (webReq.responseCode.ToString().StartsWith("3"))
                 {
                     Debug.LogError($"Redirection limit ({webReq.redirectLimit}) should not be exceeded in normal cases. You probably didn't set the sheet publicly visible.");
                 }
+                else
+                {
+                    Debug.LogError($"Are you sure that the sheets are not private and the ids are correct?");
+                }
             }
+
             AssetDatabase.Refresh();
         }
         #endregion

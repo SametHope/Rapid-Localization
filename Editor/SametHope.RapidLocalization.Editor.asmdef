@@ -2,7 +2,7 @@
     "name": "SametHope.RapidLocalization.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:6ca1e909b90d79e41af3a711bfcba506"
+        "SametHope.RapidLocalization.Runtime"
     ],
     "includePlatforms": [
         "Editor"

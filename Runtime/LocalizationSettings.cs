@@ -7,6 +7,7 @@ namespace SametHope.RapidLocalization
     /// </summary>
     public class LocalizationSettings : ScriptableObject
     {
+        // These constants are here instead of LocalizationEditorUtils as they are also used by runtime scripts.
         public const string LOCALIZATION_FOLDER_NAME = "RapidLocalization";
         public const string LOCALIZATION_FOLDER_PATH = "Assets/Resources/RapidLocalization";
 
@@ -14,6 +15,7 @@ namespace SametHope.RapidLocalization
         public const string SETTINGS_FILE_PATH = "Assets/Resources/RapidLocalization/RapidLocalizationSettings.asset";
 
         public const string RESOURCES_FOLDER_PATH = "Assets/Resources";
+
 
         public static LocalizationSettings Instance;
 

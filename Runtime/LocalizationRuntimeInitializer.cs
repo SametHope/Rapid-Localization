@@ -24,29 +24,34 @@ namespace SametHope.RapidLocalization
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void Initialize()
         {
-            // If for some reason data file is missing on the resources folder, we can not access options so we will just return.
-            var settings = GetSettings();
-            if (settings == null) return;
-            LocalizationSettings.Instance = settings;
+            var objs = Resources.FindObjectsOfTypeAll<LocalizationSettings>();
 
-            if (LocalizationSettings.Instance.AutoInitialize)
+            if (objs.Length == 0)
             {
-                Debug.Log("Initializing RapidLocalization.");
-                LocalizationManager.InitializeDictionary();
+                // Should never happen, but it is better to know it if it does.
+                Debug.LogWarning("No settings asset for the Rapid Localization was found. Preferences such as auto initialize and auto language update will be ignored.");
+            }
+            else if (objs.Length == 1)
+            {
+                LocalizationSettings.Instance = objs[0];
 
-                if (LocalizationSettings.Instance.AutoUpdateLanguage)
+                if (LocalizationSettings.Instance.AutoInitialize)
                 {
-                    LocalizationManager.LoadLanguage();
-                    LocalizationManager.SaveLanguage();
+                    Debug.Log("Initializing Rapid Localization.");
+                    LocalizationManager.InitializeDictionary();
+
+                    if (LocalizationSettings.Instance.AutoUpdateLanguage)
+                    {
+                        LocalizationManager.LoadLanguage();
+                        LocalizationManager.SaveLanguage();
+                    }
                 }
             }
-        }
-
-        private static LocalizationSettings GetSettings()
-        {
-            var objs = Resources.FindObjectsOfTypeAll<LocalizationSettings>();
-            if(objs.Length == 0) return null;
-            else return objs[0];
+            else
+            {
+                // Should never happen, but it is better to know it if it does.
+                Debug.LogWarning($"More than one Rapid Localization settings asset has been found, this may cause unexpected behaviour. Please find the duplicate and delete it.");
+            }
         }
     }
 }

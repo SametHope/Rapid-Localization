@@ -72,7 +72,8 @@ namespace SametHope.RapidLocalization
                 string text = textAsset.text.Replace("\r\n", "\n").Replace("\"\"", "[_quote_]");
                 MatchCollection matches = Regex.Matches(text, "\"[\\s\\S]+?\"");
 
-                // We are casting explicitly so if it fails to cast on runtime (for some reason?) we will know the cast was intentional.
+                // We are casting explicitly so if it fails to cast on runtime
+                // (which is unlikely but for some reason compiler screams at me to cast it) we will know the cast was intentional.
                 foreach (Match match in matches.Cast<Match>())
                 {
                     text = text.Replace(match.Value, match.Value.Replace("\"", null).Replace(",", "[_comma_]").Replace("\n", "[_newline_]"));
@@ -176,7 +177,11 @@ namespace SametHope.RapidLocalization
         #endregion
 
         #region PlayerPrefs
-        private const string _PREFKEY_LANGUAGE = "Language";
+
+        /// <summary>
+        /// PlayerPrefs key used to save the language.
+        /// </summary>
+        public const string PREFKEY_LANGUAGE = "Language";
 
         /// <summary>
         /// Updates the language to the language that is saved in the PlayerPrefs.
@@ -186,7 +191,7 @@ namespace SametHope.RapidLocalization
         /// </summary>
         public static void LoadLanguage()
         {
-            Language = PlayerPrefs.GetString(_PREFKEY_LANGUAGE, GetSupportedLanguageFromSystem());
+            Language = PlayerPrefs.GetString(PREFKEY_LANGUAGE, GetSupportedLanguageFromSystem());
         }
 
         /// <summary>
@@ -194,7 +199,7 @@ namespace SametHope.RapidLocalization
         /// </summary>
         public static void SaveLanguage()
         {
-            PlayerPrefs.SetString(_PREFKEY_LANGUAGE, Language);
+            PlayerPrefs.SetString(PREFKEY_LANGUAGE, Language);
         }
 
         /// <summary>
@@ -202,7 +207,7 @@ namespace SametHope.RapidLocalization
         /// </summary>
         public static void SaveLanguage(string language)
         {
-            PlayerPrefs.SetString(_PREFKEY_LANGUAGE, language);
+            PlayerPrefs.SetString(PREFKEY_LANGUAGE, language);
         }
 
         /// <summary>
@@ -210,7 +215,7 @@ namespace SametHope.RapidLocalization
         /// </summary>
         public static bool HasSavedLanguage()
         {
-            return PlayerPrefs.HasKey(_PREFKEY_LANGUAGE);
+            return PlayerPrefs.HasKey(PREFKEY_LANGUAGE);
         }
 
         /// <summary>
@@ -222,7 +227,7 @@ namespace SametHope.RapidLocalization
                 "This will return an empty string which may cause unwanted and hard to track behaviours. \n" +
                 "Check if there is a saved language first before relying on this method.");
 
-            return PlayerPrefs.GetString(_PREFKEY_LANGUAGE);
+            return PlayerPrefs.GetString(PREFKEY_LANGUAGE);
         }
 
 
