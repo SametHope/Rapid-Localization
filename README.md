@@ -43,7 +43,7 @@ Rapid Localization is a lightweight Unity plugin that makes adding localization 
 
 **To translate UI elements, follow these steps:**
 
-1. Add the '[Localizer](https://github.com/SametHope/Rapid-Localization/edit/main/README.md#localizer)' component to the UI element you want to translate.
+1. Add the '[Localizer](https://github.com/SametHope/Rapid-Localization/#localizer)' component to the UI element you want to translate.
 
 2. Set the localization key for the 'Localizer' component. This key will be used to update the translation of the UI element when necessary.
 
@@ -70,6 +70,8 @@ At this point, the plugin can optionally check if a language has been previously
 When the language is set or changed, listeners are notified and update their languages accordingly. If a translation key is missing in the current language, the fallback language is used. If the fallback is also missing, the key itself is used for easier debugging. Any unintended behavior is logged as warnings or errors, along with helpful tips to resolve them.
 
 
+
+
 ## Extras
 
 ### Tools bar
@@ -81,9 +83,7 @@ When the language is set or changed, listeners are notified and update their lan
 ### Filling out Google Sheet informations
 ![2023-07-06 02_36_00-Mock Localisation - Google E-Tablolar - Opera](https://github.com/SametHope/Rapid-Localization/assets/85421686/1affad3b-ffbe-4e98-b9b6-26690a4ebd84)
 
-Long red line is the 'TableID', short red line is the 'Sheet ID'. 
+Long red line is the 'TableID', short red line is the 'Sheet ID'. Also your Google Sheet must be public to be downloaded.
 
 ### Localizer
 ![2023-07-06 02_54_15-Temp Medias](https://github.com/SametHope/Rapid-Localization/assets/85421686/c543e923-063b-4ce7-ad5b-e724f2e1e2db)
-
-#### Note: that your Google Sheet must be public so it can be downloaded. 
