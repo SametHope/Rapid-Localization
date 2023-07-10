@@ -125,7 +125,7 @@ namespace SametHope.RapidLocalization
         /// <summary>
         /// Get localized value by localization key for the current language.
         /// </summary>
-        public static string Localize(string localizationKey)
+        public static string Localize(string localizationKey, Object context = null)
         {
             if (Dictionary.Count == 0)
             {
@@ -145,14 +145,14 @@ namespace SametHope.RapidLocalization
                 bool fallbackLanguageSavesTheDay = IsEntryValid(FALLBACK_LANGUAGE, localizationKey);
                 if (fallbackLanguageSavesTheDay)
                 {
-                    Debug.LogWarning($"Translation warning: Localization key entry not found: ({localizationKey}) ({Language}). Using fallback language ({FALLBACK_LANGUAGE}) instead.");
+                    Debug.LogWarning($"Translation warning: Localization key entry not found: ({localizationKey}) ({Language}). Using fallback language ({FALLBACK_LANGUAGE}) instead.", context);
                     return Dictionary[FALLBACK_LANGUAGE][localizationKey];
                 }
                 else
                 {
                     Debug.LogError($"Translation failed: Localization key entry not found: ({localizationKey}) ({Language})." +
                         $" Fallback language ({FALLBACK_LANGUAGE}) also doesn't have the key entry." +
-                        $" Returning the localization key ({localizationKey}) as translation so it may ease debugging.");
+                        $" Returning the localization key ({localizationKey}) as translation so it may ease debugging.", context);
                     return localizationKey;
                 }
             }
@@ -163,9 +163,9 @@ namespace SametHope.RapidLocalization
         /// <summary>
         /// Get localized value by localization key for the current language with parameters.
         /// </summary>
-        public static string Localize(string localizationKey, params object[] args)
+        public static string Localize(string localizationKey, Object context = null, params object[] args)
         {
-            var pattern = Localize(localizationKey);
+            var pattern = Localize(localizationKey, context);
 
             return string.Format(pattern, args);
         }

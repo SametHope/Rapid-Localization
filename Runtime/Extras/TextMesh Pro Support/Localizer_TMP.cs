@@ -38,12 +38,12 @@ namespace SametHope.RapidLocalization
         public void Localize()
         {
             if (IgnoreLanguageChangeEvent) return;
-            TMP.text = LocalizationManager.Localize(LocalizationKey);
+            TMP.text = LocalizationManager.Localize(LocalizationKey, gameObject);
         }
         public void Localize(params object[] args)
         {
             if (IgnoreLanguageChangeEvent) return;
-            TMP.text = LocalizationManager.Localize(LocalizationKey, args);
+            TMP.text = LocalizationManager.Localize(LocalizationKey, gameObject, args);
         }
     }
 }
