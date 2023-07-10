@@ -14,7 +14,10 @@ namespace SametHope.RapidLocalization
         public const string SETTINGS_FILE_NAME = "RapidLocalizationSettings.asset";
         public const string SETTINGS_FILE_PATH = "Assets/Resources/RapidLocalization/RapidLocalizationSettings.asset";
 
+        public const string RESOURCES_FOLDER_NAME = "Resources";
         public const string RESOURCES_FOLDER_PATH = "Assets/Resources";
+
+        public const string ASSETS_FOLDER= "Assets";
 
 
         public static LocalizationSettings Instance;
@@ -48,7 +51,7 @@ namespace SametHope.RapidLocalization
         {
             DrawDefaultInspector();
             UnityEditor.EditorGUILayout.HelpBox("Do not modify values directly from here.", UnityEditor.MessageType.Warning);
-        } 
+        }
     }
 #endif
 }
