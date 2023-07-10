@@ -29,7 +29,11 @@ namespace SametHope.RapidLocalization
             if (objs.Length == 0)
             {
                 // Should never happen, but it is better to know it if it does.
-                Debug.LogWarning("No settings asset for the Rapid Localization was found. Preferences such as auto initialize and auto language update will be ignored.");
+                Debug.LogWarning("No settings asset for the Rapid Localization was found. Preferences such as auto initialize and auto language update will be used as default.");
+                
+                InitializeDictionary();
+                AutoUpdateLanguage();
+
             }
             else if (objs.Length == 1)
             {
@@ -37,13 +41,11 @@ namespace SametHope.RapidLocalization
 
                 if (LocalizationSettings.Instance.AutoInitialize)
                 {
-                    Debug.Log("Initializing Rapid Localization.");
-                    LocalizationManager.InitializeDictionary();
+                    InitializeDictionary();
 
                     if (LocalizationSettings.Instance.AutoUpdateLanguage)
                     {
-                        LocalizationManager.LoadLanguage();
-                        LocalizationManager.SaveLanguage();
+                        AutoUpdateLanguage();
                     }
                 }
             }
@@ -52,6 +54,16 @@ namespace SametHope.RapidLocalization
                 // Should never happen, but it is better to know it if it does.
                 Debug.LogWarning($"More than one Rapid Localization settings asset has been found, this may cause unexpected behaviour. Please find the duplicate and delete it.");
             }
+        }
+
+        private static void InitializeDictionary()
+        {
+            LocalizationManager.InitializeDictionary();
+        }
+        private static void AutoUpdateLanguage()
+        {
+            LocalizationManager.LoadLanguage();
+            LocalizationManager.SaveLanguage();
         }
     }
 }
