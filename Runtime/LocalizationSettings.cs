@@ -5,6 +5,7 @@ namespace SametHope.RapidLocalization
     /// <summary>
     /// This class holds options and data set on the editor and is used by both editor and runtime calls.
     /// </summary>
+    [System.Serializable]
     public class LocalizationSettings : ScriptableObject
     {
         // These constants are here instead of LocalizationEditorUtils as they are also used by runtime scripts.
