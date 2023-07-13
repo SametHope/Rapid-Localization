@@ -19,10 +19,13 @@ namespace SametHope.RapidLocalization.Editor
         // but I made it this way so it is not dependent on gameObjects/monoBehaviours and will not bloat the scene.
 
         [MenuItem("Tools/SametHope/Localization Syncronizer")]
-        public static void CreateWindow()
+        public static void ShowWindow()
         {
             var window = GetWindow(typeof(LocalizationSyncronizer), false, "Localization Syncronizer", true);
             window.minSize = new Vector2(380, 220);
+            window.name = "Localization Syncronizer";
+
+            window.Show();
         }
 
         private void OnEnable()
