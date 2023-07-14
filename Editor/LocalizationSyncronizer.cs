@@ -21,10 +21,8 @@ namespace SametHope.RapidLocalization.Editor
         [MenuItem("Tools/SametHope/Localization Syncronizer")]
         public static void ShowWindow()
         {
-            var window = GetWindow(typeof(LocalizationSyncronizer), false, "Localization Syncronizer", true);
+            LocalizationSyncronizer window = GetWindow<LocalizationSyncronizer>(false, "Localization Syncronizer");
             window.minSize = new Vector2(380, 220);
-            window.name = "Localization Syncronizer";
-
             window.Show();
         }
 

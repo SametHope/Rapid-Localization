@@ -14,8 +14,6 @@ namespace SametHope.RapidLocalization.Editor
         [InitializeOnLoadMethod]
         private static void SecureEditorFilesCreate()
         {
-            AssetDatabase.Refresh();
-
             if (!LocalizationEditorUtils.ResourcesFolderExists)
             {
                 Debug.Log($"Creating Resources folder: {LocalizationSettings.RESOURCES_FOLDER_PATH}");
@@ -43,8 +41,6 @@ namespace SametHope.RapidLocalization.Editor
         /// </summary>
         public static void SecureEditorFilesMissing()
         {
-            AssetDatabase.Refresh();
-
             if (!LocalizationEditorUtils.ResourcesFolderExists)
             {
                 Debug.Log($"{LocalizationSettings.RESOURCES_FOLDER_PATH} is missing, creating it.");
