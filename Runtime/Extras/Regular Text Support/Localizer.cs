@@ -20,6 +20,14 @@ namespace SametHope.RapidLocalization
 
         [HideInInspector] public Text Text;
 
+        private void OnValidate()
+        {
+            if(LocalizationSettings.Instance != null && LocalizationSettings.Instance.UseKeysAsText)
+            {
+                if(Text == null) Text = GetComponent<Text>();
+                Text.text = LocalizationKey;
+            }
+        }
         protected void Awake()
         {
             Text = GetComponent<Text>();

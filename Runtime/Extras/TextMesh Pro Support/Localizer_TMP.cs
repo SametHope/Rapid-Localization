@@ -19,7 +19,14 @@ namespace SametHope.RapidLocalization
         public string LocalizationKey;
 
         [HideInInspector] public TextMeshProUGUI TMP;
-
+        private void OnValidate()
+        {
+            if (LocalizationSettings.Instance != null && LocalizationSettings.Instance.UseKeysAsText)
+            {
+                if (TMP == null) TMP = GetComponent<TextMeshProUGUI>();
+                TMP.text = LocalizationKey;
+            }
+        }
         protected void Awake()
         {
             TMP = GetComponent<TextMeshProUGUI>();

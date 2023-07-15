@@ -22,7 +22,7 @@ namespace SametHope.RapidLocalization.Editor
         public static void ShowWindow()
         {
             LocalizationSyncronizer window = GetWindow<LocalizationSyncronizer>(false, "Localization Syncronizer");
-            window.minSize = new Vector2(380, 220);
+            window.minSize = new Vector2(380, 245);
             window.Show();
         }
 
@@ -76,6 +76,7 @@ namespace SametHope.RapidLocalization.Editor
             {
                 EditorGUILayout.HelpBox("I highly recommend enabling these two options. Be sure to hover over them to make sure you know what they do before unticking them.", MessageType.Info);
             }
+            EditorGUILayout.PropertyField(serDataObj.FindProperty(nameof(LocalizationSettings.UseKeysAsText)));
 
             GUILayout.EndVertical();
 

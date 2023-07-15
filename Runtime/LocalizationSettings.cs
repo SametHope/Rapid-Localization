@@ -38,10 +38,12 @@ namespace SametHope.RapidLocalization
         [Tooltip("Automatically initializes the manager before the first scene is loaded, requiring no manual initialization.")]
         public bool AutoInitialize = true;
 
-        [Tooltip("Automatically updates the language using PlayerPrefs after initialization. \n" +
-            "If there is no PlayerPrefs entry, tries using system language, if it is not a supported language, uses the fallback language. \n" +
-            "Also saves the language to PlayerPrefs for further use after setting it.")]
+        [Tooltip("Automatically updates the language using PlayerPrefs after initialization.\n" +
+            "Falls back to the system language if PlayerPrefs entry is absent or not supported.")]
         public bool AutoUpdateLanguage = true;
+
+        [Tooltip("Display localization keys instead of texts on localizer components. Changing the key will update the displayed text accordingly..")]
+        public bool UseKeysAsText = false;
     }
 
 #if UNITY_EDITOR
